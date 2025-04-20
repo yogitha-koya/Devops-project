@@ -1,13 +1,17 @@
-#main.py
 def read_numbers(file_path):
+    """Reads numbers from a file and returns them as a list."""
+    numbers = []
     with open(file_path, 'r') as f:
-        return [float(line.strip()) for line in f.readlines()]
+        for line in f:
+            numbers.append(int(line.strip()))
+    return numbers
 
-def calculate_average(numbers):
-    return sum(numbers) / len(numbers)
+def process_numbers(numbers):
+    """Processes the list of numbers (e.g., summing them)."""
+    return sum(numbers)
 
 if __name__ == "__main__":
+    # Example usage (you can replace 'Data.txt' with your actual file)
     numbers = read_numbers('Data.txt')
-    average = calculate_average(numbers)
-    print(f"Average: {average}")
-
+    result = process_numbers(numbers)
+    print(f"The sum of the numbers is: {result}")
