@@ -41,7 +41,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    bash -c "source ${VENV_DIR}/bin/activate && pytest ${PROJECT_DIR}/tests/"
+                    bash -c "source ${VENV_DIR}/bin/activate && pytest ${PROJECT_DIR}/test_main.py"
                 '''
             }
         }
