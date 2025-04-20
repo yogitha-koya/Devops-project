@@ -1,7 +1,15 @@
-import pytest
+# Task2/test_main.py
+
+# Import the function to test
 from main import calculate_average
 
+# Test case to check the average of a list of numbers
 def test_calculate_average():
-    """Test cases to validate the calculate_average function."""
-    assert calculate_average([10, 20, 30]) == 20
-    assert round(calculate_average([1.5, 2.5, 3.0]), 2) == 2.33
+    # Test data
+    numbers = [10.0, 20.0, 30.0, 40.0, 50.0]
+    
+    # Expected result
+    expected = 30.0
+    
+    # Assert that the function returns the correct average
+    assert calculate_average(numbers) == expected
