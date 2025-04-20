@@ -11,11 +11,16 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
+                    sudo apt update
+                    sudo apt install -y python3-venv
                     python3 -m venv venv
-                    . venv/bin/activate
-                    pip3 install -r Task2/requirements.txt
+                    source venv/bin/activate
+                    pip3 install --upgrade pip
+                    pip3 install -r requirements.txt
+            
                 '''
-            }
+        
+    }
         }
 
         stage('Run Application') {
