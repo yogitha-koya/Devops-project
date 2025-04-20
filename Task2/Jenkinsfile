@@ -10,19 +10,29 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r Task2/requirements.txt'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip3 install -r Task2/requirements.txt
+                '''
             }
         }
 
         stage('Run Application') {
             steps {
-                sh 'python Task2/main.py'
+                sh '''
+                    . venv/bin/activate
+                    python3 Task2/app.py
+                '''
             }
         }
 
         stage('Test') {
             steps {
-                sh 'pytest Task2/test_main.py'
+                sh '''
+                    . venv/bin/activate
+                    pytest Task2/test_app.py
+                '''
             }
         }
     }
