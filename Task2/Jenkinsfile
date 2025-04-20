@@ -8,47 +8,34 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install Requirements') {
             steps {
                 sh '''
-                    sudo apt update
-                    sudo apt install -y python3-venv
-                    python3 -m venv venv
-                    source venv/bin/activate
                     pip3 install --upgrade pip
                     pip3 install -r requirements.txt
-            
-                '''
-        
-    }
-        }
-
-        stage('Run Application') {
-            steps {
-                sh '''
-                    . venv/bin/activate
-                    python3 Task2/app.py
                 '''
             }
         }
 
-        stage('Test') {
+        stage('Run App') {
             steps {
-                sh '''
-                    . venv/bin/activate
-                    pytest Task2/test_app.py
-                '''
+                sh 'python3 app.py'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'pytest'
             }
         }
     }
 
     post {
         success {
-            echo '✅ Build and tests successful!'
+            echo '✅ Pipeline executed successfully!'
         }
         failure {
-            echo '❌ Build or tests failed!'
+            echo '❌ Pipeline failed!'
         }
     }
 }
-
