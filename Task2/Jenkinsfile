@@ -33,7 +33,7 @@ pipeline {
         stage('Run App') {
             steps {
                 sh '''
-                    bash -c "source ${VENV_DIR}/bin/activate && python3 ${PROJECT_DIR}/app.py"
+                    bash -c "source ${VENV_DIR}/bin/activate && python3 ${PROJECT_DIR}/main.py"
                 '''
             }
         }
