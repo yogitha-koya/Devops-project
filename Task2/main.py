@@ -1,3 +1,4 @@
+#main.py
 def read_numbers(file_path):
     with open(file_path, 'r') as f:
         return [float(line.strip()) for line in f.readlines()]
