@@ -8,6 +8,6 @@ def calculate_average(numbers):
     return sum(numbers) / len(numbers)
 
 if __name__ == "__main__":
-    numbers = read_numbers('Data.txt')
+    numbers = read_numbers('Task2/Data.txt')
     average = calculate_average(numbers)
     print(f"Average: {average}")
