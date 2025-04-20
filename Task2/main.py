@@ -1,13 +1,12 @@
-def read_numbers(file_path):
-    """Reads numbers from a file and returns them as a list."""
-    with open(file_path, 'r') as f:
-        return [float(line.strip()) for line in f.readlines()]
+def read_numbers(filename):
+    with open(filename, 'r') as f:
+        # This will skip empty lines and convert valid lines to floats
+        return [float(line.strip()) for line in f.readlines() if line.strip()]
 
-def calculate_average(numbers):
-    """Calculates the average of a list of numbers."""
-    return sum(numbers) / len(numbers)
+def main():
+    # Replace 'Task2/Data.txt' with the correct path to your file
+    numbers = read_numbers('Task2/Data.txt')
+    print("Read numbers:", numbers)
 
 if __name__ == "__main__":
-    numbers = read_numbers('Task2/Data.txt')
-    average = calculate_average(numbers)
-    print(f"Average: {average}")
+    main()
