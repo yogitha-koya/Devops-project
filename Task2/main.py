@@ -1,4 +1,5 @@
 # Task2/main.py
+#main.py
 
 # Function to calculate the average of a list of numbers
 def calculate_average(numbers):
