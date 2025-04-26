@@ -1,4 +1,4 @@
-# Task2/test_main.py
+#test_main.py
 
 # Import the function to test
 from main import calculate_average
