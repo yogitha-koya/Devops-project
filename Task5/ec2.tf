@@ -8,7 +8,6 @@ data "aws_security_group" "my_security_sg" {
 
 
 resource "aws_instance" "task5-demo-instance" {
-  instance_name = "task5-demo-instance"
   ami           = "ami-075686beab831bb7f"
   instance_type = "t2.micro"
   availability_zone = "us-west-2b"
