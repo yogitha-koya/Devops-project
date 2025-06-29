@@ -1,0 +1,17 @@
+@Library("my-shared-library") _
+pipeline {
+    agent { label 'agent1' }
+
+    stages {
+        stage('Hello') {
+            steps {
+                helloWorld()
+            }
+        }
+        stage('Build') {
+            steps {
+                buildMaven()
+            }
+        }
+    }
+}
